@@ -11,32 +11,38 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class BrowserFactory {
 	public static WebDriver startApplication(WebDriver driver, String browserName, String appUrl) {
 		if(browserName.equals("Chrome")) {
-			System. setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
 			ChromeOptions op = new ChromeOptions ();
-			op.addArguments(" -- remote-allow-origins =* ");
+			op.addArguments("--remote-allow-origins=*");
+//			op.addArguments("--headless"); // Run in headless mode
+            op.addArguments("--no-sandbox");
+            op.addArguments("--disable-dev-shm-usage");
 			driver = new ChromeDriver (op);
+			System.out.println("Browser opened");
 		}
 		else if (browserName.equals("Firefox"))
 		{
 			System.setProperty("webdriver.chrome.driver", "./Drivers/geckodriver.exe");
 			driver = new FirefoxDriver () ;
 		}
-			else if (browserName.equals ("IE") )
-			{
+		else if (browserName.equals ("IE") )
+		{
 
 			System. setProperty("webdriver.chrome.driver", "./Drivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
-			}
-			else
+		}
+		else
 			{
 			System. out.println ("We do not support this browser ");
 			}
-			driver.manage () .window() .maximize();
+		
+			driver.manage().window().maximize();
 			driver.get (appUrl);
-			driver.manage () .timeouts () .implicitlyWait (30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait (30, TimeUnit.SECONDS);
 		return driver;
 	}
 	public static void quitBrowser (WebDriver driver) {
-		driver.quit();
+//		driver.quit();
+		System.out.println("Browser closed");
 	}
 }
