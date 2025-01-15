@@ -32,6 +32,6 @@ public class ConfigDataProvider {
 
 	public String getStagingUrl () {
 	// TODO Auto-generated method stub
-	return pro.getProperty("testurl");
+	return pro.getProperty("testurl2");
 	}
 }

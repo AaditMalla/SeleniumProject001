@@ -18,7 +18,6 @@ public class BrowserFactory {
             op.addArguments("--no-sandbox");
             op.addArguments("--disable-dev-shm-usage");
 			driver = new ChromeDriver (op);
-			System.out.println("Browser opened");
 		}
 		else if (browserName.equals("Firefox"))
 		{
