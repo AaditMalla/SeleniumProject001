@@ -16,16 +16,19 @@ this.driver=lDriver;
 
 PageFactory.initElements(driver, this);
 }
-@FindBy (xpath="//*[@id=\"mynavbar\"]/div/a[2]") WebElement loginclick;
+@FindBy (xpath= "//*[@id=\"navbarSupportedContent\"]/div[2]/ul/li[3]/a")  WebElement AccountClick;
+@FindBy (xpath="//*[@id=\"navbarSupportedContent\"]/div[2]/ul/li[3]/ul/li[1]/a") WebElement loginclick;
 
 @FindBy (xpath="//*[@id=\"email\"]") WebElement uname;
 
 @FindBy (xpath="//*[@id=\"password\"]") WebElement pass;
 
-@FindBy (xpath="//*[@id=\"submit\"]") WebElement loginButton;
+@FindBy (xpath="//*[@id=\"submitBTN\"]") WebElement loginButton;
 
 public void loginPortal (String userName, String passWord) {
 	String originalWindowHandle = driver.getWindowHandle();
+	AccountClick.click();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	loginclick.click();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	Set<String> allWindows = driver.getWindowHandles();
