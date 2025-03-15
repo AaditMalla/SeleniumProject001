@@ -11,7 +11,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class BrowserFactory {
 	public static WebDriver startApplication(WebDriver driver, String browserName, String appUrl) {
 		if(browserName.equals("Chrome")) {
-			System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C://Selinium webdriver//chromedriver-win64/chromedriver.exe");
 			ChromeOptions op = new ChromeOptions ();
 			op.addArguments("--remote-allow-origins=*");
 //			op.addArguments("--headless"); // Run in headless mode

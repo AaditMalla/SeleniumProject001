@@ -7,10 +7,11 @@ import com.firstSeleniumProject.pages.LoginPage;
 
 public class TestLogin extends BaseTest {
 	@Test
-	void verifyLogin() {
+	 public void verifyLogin() {
 		LoginPage logP = new LoginPage(driver);
 		String userName = "user@phptravels.com";
 		String password = "demouser";
 		logP.loginPortal(userName, password);
 	}
 }
+	

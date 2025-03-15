@@ -16,6 +16,7 @@ this.driver=lDriver;
 
 PageFactory.initElements(driver, this);
 }
+//get required webelements
 @FindBy (xpath= "//*[@id=\"navbarSupportedContent\"]/div[2]/ul/li[3]/a")  WebElement AccountClick;
 @FindBy (xpath="//*[@id=\"navbarSupportedContent\"]/div[2]/ul/li[3]/ul/li[1]/a") WebElement loginclick;
 
@@ -31,6 +32,7 @@ public void loginPortal (String userName, String passWord) {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	loginclick.click();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	//get windowhandles if login page opens in new page
 	Set<String> allWindows = driver.getWindowHandles();
 	for(String windowHandle : allWindows) {
 		System.out.println(windowHandle);
@@ -39,6 +41,7 @@ public void loginPortal (String userName, String passWord) {
 			break;
 		}
 	}
+	//insert username and password in the webelements
 	uname.sendKeys(userName);
 	pass.sendKeys(passWord);
 	loginButton.click();
